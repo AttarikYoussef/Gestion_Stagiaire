@@ -11,5 +11,6 @@
 <body>
 	<jsp:include page="/WebLayer/Menu/Navbar.jsp"/>
 	<h1>Bonjour Zvanks</h1>
+	<h1>Bonjour Nassim</h1>
 </body>
 </html>
