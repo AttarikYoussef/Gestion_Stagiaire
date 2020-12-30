@@ -19,7 +19,7 @@ public class Administrateur implements Serializable {
 
 	//bi-directional one-to-one association to Utilisateur
 	@OneToOne
-	@JoinColumn(name="id_utili_admin")
+	@PrimaryKeyJoinColumn(name="id_utili_admin")
 	private Utilisateur utilisateur;
 
 	public Administrateur() {

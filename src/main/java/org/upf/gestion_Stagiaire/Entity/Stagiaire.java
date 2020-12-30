@@ -24,7 +24,7 @@ public class Stagiaire implements Serializable {
 
 	//bi-directional one-to-one association to Utilisateur
 	@OneToOne
-	@JoinColumn(name="id_utili_stagiaire")
+	@PrimaryKeyJoinColumn(name="id_utili_stagiaire")
 	private Utilisateur utilisateur;
 
 	//bi-directional many-to-one association to Promotion

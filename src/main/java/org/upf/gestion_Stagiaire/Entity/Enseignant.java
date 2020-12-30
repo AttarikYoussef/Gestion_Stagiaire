@@ -24,7 +24,7 @@ public class Enseignant implements Serializable {
 
 	//bi-directional one-to-one association to Utilisateur
 	@OneToOne
-	@JoinColumn(name="id_utili_ensei")
+	@PrimaryKeyJoinColumn(name="id_utili_ensei")
 	private Utilisateur utilisateur;
 
 	//bi-directional many-to-one association to Filiere
