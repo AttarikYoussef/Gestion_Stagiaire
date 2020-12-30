@@ -19,7 +19,7 @@ public class Gerant implements Serializable {
 
 	//bi-directional one-to-one association to Enseignant
 	@OneToOne
-	@JoinColumn(name="id_enseig_gerant")
+	@PrimaryKeyJoinColumn(name="id_enseig_gerant")
 	private Enseignant enseignant;
 
 	//bi-directional many-to-one association to Filiere
