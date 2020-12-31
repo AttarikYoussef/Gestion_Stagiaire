@@ -25,6 +25,13 @@ public class Administrateur implements Serializable {
 	public Administrateur() {
 	}
 
+	
+	public Administrateur(String idUtiliAdmin) {
+		super();
+		this.idUtiliAdmin = idUtiliAdmin;
+	}
+
+
 	public String getIdUtiliAdmin() {
 		return this.idUtiliAdmin;
 	}
