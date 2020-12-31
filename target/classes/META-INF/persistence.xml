@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="Gestion_Stagiaire" transaction-type="RESOURCE_LOCAL">
+		<class>org.upf.gestion_Stagiaire.Entity.Administrateur</class>
+		<class>org.upf.gestion_Stagiaire.Entity.DemandeSeance</class>
+		<class>org.upf.gestion_Stagiaire.Entity.DemandeSoutenance</class>
+		<class>org.upf.gestion_Stagiaire.Entity.DemandeStage</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Encadrant</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Enseignant</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Filiere</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Gerant</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Promotion</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Seance</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Soutenance</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Stage</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Stagiaire</class>
+		<class>org.upf.gestion_Stagiaire.Entity.Utilisateur</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestion_stages"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="123456"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
