@@ -1,0 +1,61 @@
+
+footer{
+    background-color:#1ab7ea;
+    font-family: "Cambria Math", serif;
+    font-size: medium;
+    border-style: outset;
+    font-weight:bold;
+
+
+}
+.nassim {
+    height: 50px;
+    width: 1123px;
+}
+.text-center {
+
+}
+
+
+.navbar-custom {
+    background-color:#1ab7ea;
+    font-family: "Avenir Next", serif;
+    font-weight:bold;
+
+}
+
+a {
+	
+    color: white;
+    font-family: 'Cambria Math', serif;
+    font-size: large;
+    font-weight:bold;
+
+}
+nav {
+    font-family: "Segoe UI", serif;
+    color: white;
+    border-style: hidden;
+    font-weight:bold;
+
+}
+
+li{
+    font-family: "Segoe UI", serif;
+    font-weight:bold;
+}
+button{
+    font-family: "Segoe UI", serif;
+    color: #DDDDDD;
+    font-weight:bold;
+}
+.my-sm-0 {
+    font-family: "Segoe UI", serif;
+    color: #DDDDDD;
+    border-color: #DDDDDD;
+    font-weight:bold;
+}
+
+.my-lg-0 {
+	float: right;
+}
