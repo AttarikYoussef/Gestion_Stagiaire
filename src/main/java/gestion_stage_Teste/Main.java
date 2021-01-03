@@ -10,7 +10,7 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		UtilisateurDAO t = new UtilisateurDAO();
-		Utilisateur uti = new Utilisateur("Zvanks", "non", "non", "Zvanks", "Zvanks", "066666666", "fes");
+		Utilisateur uti = new Utilisateur("SERVLET", "non", "non", "Zvanks", "Zvanks", "066666666", "fes");
 		if(t.ajouter(uti)==true) {
 			System.out.println("ajout avec succées");
 		}
