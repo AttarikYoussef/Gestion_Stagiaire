@@ -15,9 +15,11 @@ public class Stage implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_stage")
 	private int idStage;
 
+	
 	//bi-directional many-to-one association to DemandeSeance
 	@OneToMany(mappedBy="stage")
 	private List<DemandeSeance> demandeSeances;
@@ -94,4 +96,10 @@ public class Stage implements Serializable {
 		this.demandeStage = demandeStage;
 	}
 
+	public Stage(int idStage) {
+		super();
+		this.idStage = idStage;
+	}
+
+	
 }
