@@ -97,8 +97,6 @@ public class ServletDemandeSoutenance extends HttpServlet {
 				Stage stage = utidao.findbyIddstage(beandem.getId_st());
 				
 				
-				
-				
 				DemandeSoutenance dem = new DemandeSoutenance(beandem.getComm(),beandem.getDate_demande(),beandem.getAtt_st(),beandem.getFiche_eva(),beandem.getRapp_st(),beandem.getHeure(),stage);
 				
 				System.out.println(beandem.getComm()+beandem.getDate_demande()+beandem.getAtt_st()+beandem.getFiche_eva()+beandem.getRapp_st()+beandem.getHeure());
