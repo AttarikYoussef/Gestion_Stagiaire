@@ -18,6 +18,7 @@ public class DemandeSoutenance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_demande_soutenance")
 	private int idDemandeSoutenance;
 
@@ -40,12 +41,12 @@ public class DemandeSoutenance implements Serializable {
 	private byte[] fileRapportStage;
 
 	@Column(name="heure_propose_sout")
-	private Time heureProposeSout;
+	private String heureProposeSout;
 
-	private byte validation;
+	private boolean validation;
 
 	//bi-directional many-to-one association to Stage
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE})
 	@JoinColumn(name="id_stage")
 	private Stage stage;
 
@@ -104,19 +105,19 @@ public class DemandeSoutenance implements Serializable {
 		this.fileRapportStage = fileRapportStage;
 	}
 
-	public Time getHeureProposeSout() {
+	public String getHeureProposeSout() {
 		return this.heureProposeSout;
 	}
 
-	public void setHeureProposeSout(Time heureProposeSout) {
+	public void setHeureProposeSout(String heureProposeSout) {
 		this.heureProposeSout = heureProposeSout;
 	}
 
-	public byte getValidation() {
+	public boolean getValidation() {
 		return this.validation;
 	}
 
-	public void setValidation(byte validation) {
+	public void setValidation(boolean validation) {
 		this.validation = validation;
 	}
 
@@ -150,4 +151,21 @@ public class DemandeSoutenance implements Serializable {
 		return soutenance;
 	}
 
+	public DemandeSoutenance(String commentaire, Date dateProposeSout, byte[] fileAttestationStage,
+			byte[] fileEvaluation, byte[] fileRapportStage, String heureProposeSout ,Stage stage) {
+		super();
+		this.commentaire = commentaire;
+		this.dateProposeSout = dateProposeSout;
+		this.fileAttestationStage = fileAttestationStage;
+		this.fileEvaluation = fileEvaluation;
+		this.fileRapportStage = fileRapportStage;
+		this.heureProposeSout = heureProposeSout;
+		this.stage=stage;
+	
+
+	}
+
+	
+
+	
 }
