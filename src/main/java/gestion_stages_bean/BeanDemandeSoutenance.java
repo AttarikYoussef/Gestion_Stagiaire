@@ -9,6 +9,8 @@ public class BeanDemandeSoutenance {
 	String heure,comm;
 	byte[] fiche_eva,rapp_st,att_st;
 	Date date_demande;
+	
+	
 	public BeanDemandeSoutenance(int id_demande_soutenance, int id_st, String heure, String comm, byte[] fiche_eva,
 			byte[] rapp_st, byte[] att_st, Date date_demande) {
 		super();

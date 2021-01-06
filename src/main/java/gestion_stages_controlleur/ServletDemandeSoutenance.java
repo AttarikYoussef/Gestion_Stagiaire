@@ -52,6 +52,7 @@ public class ServletDemandeSoutenance extends HttpServlet {
 		
 
 		String vue="";
+		
 		String id_st = request.getParameter("id_st");
 		byte[] fiche_eva = request.getParameter("fiche_eva").getBytes();
 		byte[] rapp_st = request.getParameter("rapp_st").getBytes();
@@ -78,7 +79,6 @@ public class ServletDemandeSoutenance extends HttpServlet {
 				beandem.setAtt_st(att_st);
 				try {
 					Date dt  = new SimpleDateFormat("yyyy-MM-dd").parse(datedem);
-					//beandem.setDate_demande(new SimpleDateFormat("yyyy-MM-dd").parse(datedem));
 					java.sql.Date sqlDate = new java.sql.Date(dt.getTime()); 
 					beandem.setDate_demande(sqlDate);
 					
