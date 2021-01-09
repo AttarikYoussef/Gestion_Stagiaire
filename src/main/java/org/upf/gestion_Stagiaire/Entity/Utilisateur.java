@@ -44,6 +44,20 @@ public class Utilisateur implements Serializable {
 	public Utilisateur() {
 	}
 
+	
+	public Utilisateur(String idUtilisateur, String adresse, String email, String nom, String prenom, String telephone,
+			String ville) {
+		super();
+		this.idUtilisateur = idUtilisateur;
+		this.adresse = adresse;
+		this.email = email;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.telephone = telephone;
+		this.ville = ville;
+	}
+
+
 	public String getIdUtilisateur() {
 		return this.idUtilisateur;
 	}

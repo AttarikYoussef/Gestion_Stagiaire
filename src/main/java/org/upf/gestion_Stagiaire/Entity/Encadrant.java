@@ -19,7 +19,7 @@ public class Encadrant implements Serializable {
 
 	//bi-directional one-to-one association to Enseignant
 	@OneToOne
-	@JoinColumn(name="id_enseig_encad")
+	@PrimaryKeyJoinColumn(name="id_enseig_encad")
 	private Enseignant enseignant;
 
 	public Encadrant() {
