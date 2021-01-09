@@ -46,7 +46,7 @@ public class DemandeStage implements Serializable {
 	@Column(name="telephone_res_ent")
 	private String telephoneResEnt;
 
-	private byte validation;
+	private boolean validation;
 
 	//bi-directional many-to-one association to Stagiaire
 	@ManyToOne
@@ -140,11 +140,11 @@ public class DemandeStage implements Serializable {
 		this.telephoneResEnt = telephoneResEnt;
 	}
 
-	public byte getValidation() {
+	public boolean getValidation() {
 		return this.validation;
 	}
 
-	public void setValidation(byte validation) {
+	public void setValidation(boolean validation) {
 		this.validation = validation;
 	}
 
