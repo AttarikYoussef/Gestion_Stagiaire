@@ -46,7 +46,7 @@ public class DemandeSoutenance implements Serializable {
 	private boolean validation;
 
 	//bi-directional many-to-one association to Stage
-	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.REMOVE})
+	@ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE})
 	@JoinColumn(name="id_stage")
 	private Stage stage;
 
@@ -54,6 +54,7 @@ public class DemandeSoutenance implements Serializable {
 	@OneToMany(mappedBy="demandeSoutenance")
 	private List<Soutenance> soutenances;
 
+	
 	public DemandeSoutenance() {
 	}
 
@@ -162,7 +163,6 @@ public class DemandeSoutenance implements Serializable {
 		this.heureProposeSout = heureProposeSout;
 		this.stage=stage;
 	
-
 	}
 
 	
