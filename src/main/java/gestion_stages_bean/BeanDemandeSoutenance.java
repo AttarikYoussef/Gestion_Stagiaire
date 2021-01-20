@@ -1,6 +1,12 @@
 package gestion_stages_bean;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
+import org.upf.gestion_Stagiaire.Entity.Enseignant;
+import org.upf.gestion_Stagiaire.Entity.Soutenance;
 
 public class BeanDemandeSoutenance {
 	
@@ -9,8 +15,34 @@ public class BeanDemandeSoutenance {
 	String heure,comm;
 	byte[] fiche_eva,rapp_st,att_st;
 	Date date_demande;
+	List<DemandeSoutenance> arl = new ArrayList<DemandeSoutenance>();
+	List<Soutenance> arl2 = new ArrayList<Soutenance>();
+	List<Enseignant> arl3 = new ArrayList<Enseignant>();
 	
 	
+	public List<Soutenance> getArl2() {
+		return arl2;
+	}
+
+	public void setArl2(List<Soutenance> arl2) {
+		this.arl2 = arl2;
+	}
+
+	public List<Enseignant> getArl3() {
+		return arl3;
+	}
+
+	public void setArl3(List<Enseignant> arl3) {
+		this.arl3 = arl3;
+	}
+
+	public List<DemandeSoutenance> getArl() {
+		return arl;
+	}
+	
+	public void setArl(List<DemandeSoutenance> arl) {
+		this.arl = arl;
+	}
 	public BeanDemandeSoutenance(int id_demande_soutenance, int id_st, String heure, String comm, byte[] fiche_eva,
 			byte[] rapp_st, byte[] att_st, Date date_demande) {
 		super();
@@ -22,6 +54,10 @@ public class BeanDemandeSoutenance {
 		this.rapp_st = rapp_st;
 		this.att_st = att_st;
 		this.date_demande = date_demande;
+		
+	
+		
+		
 	}
 	public BeanDemandeSoutenance() {
 		super();
