@@ -79,7 +79,7 @@ public class FiliereDAO implements IntGlobale<Filiere>{
 	public boolean update(Filiere obj) {
 		
 		boolean res = false;
-		Filiere uti = findByID(obj.getIdF());
+		Filiere uti = findByID(obj.getIdFiliere());
 		
 		if(uti!=null) {
 			

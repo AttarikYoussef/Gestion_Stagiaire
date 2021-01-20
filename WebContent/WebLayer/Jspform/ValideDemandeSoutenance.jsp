@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demande de soutanance</title>
+<title>Validation des Demandes de soutanance</title>
 
 <script src="https://kit.fontawesome.com/2da0a9a74b.js" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -276,10 +276,10 @@
 		<div class="jumbotron">
 			<div class="card">
 			  <div class="card-header text-white text-center" style="background-color: #25383C;">
-			  		<h3><u>D</u>emande de Soutenance</h3>
+			  		<h3><u>V</u>alidation des demandes de Soutenance</h3>
 			  </div>
 			  <div class="card-body">
-			    <h5 class="card-title"><i class="fas fa-chevron-down"></i> Vos Demandes De soutenance : </h5> 
+			    <h5 class="card-title"><i class="fas fa-chevron-down"></i>Demande De soutenance proposé : </h5> 
 			    	<div class="row" style="float: right;">
 				    	<div class="col-md-12 ">
 				    		<button class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#add"><i class="fas fa-plus-circle"></i> Nouvelle Demande</button><br>
@@ -319,10 +319,98 @@
 					      <td><%=dm.getHeureProposeSout() %></td>
 					      <td><%=dm.getCommentaire() %></td>
 					      <td style="text-align:center">
-					      <a href='deleteDemandeSoutenance.jsp?dd=<%=dm.getIdDemandeSoutenance()%>' class="btn btn-danger rounded-pill"><i class="fas fa-trash-alt"></i>delete</a>
+					      <a href='delete.jsp?dd=<%=dm.getIdDemandeSoutenance()%>' class="btn btn-danger rounded-pill"><i class="fas fa-trash-alt"></i>delete</a>
+					       <a data-bs-toggle="modal" data-bs-target="#id<%=dm.getIdDemandeSoutenance()%>" class="btn btn-success"><i class="far fa-check-circle"></i>Valider</a>
+
 					      </td>
 					    </tr>
 					    </form>
+					    <div class="modal fade" id="id<%=dm.getIdDemandeSoutenance()%>" tabindex="-1"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><u>N</u>ouveau Demande de Soutenance</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       	
+	<form action="/Gestion_Stagiaire/ServletSoutenance" method="post">
+		<div class="row">
+		<center>
+		  <div class="col-md-4">
+		    <!-- Name input -->
+		    <div class="form-outline">
+		      <i class="fas fa-user"></i><b> El malki nassim</b> 
+		    </div>
+		  </div>
+		  </center>
+		</div>
+		
+		<hr />
+		
+
+		<br>
+		
+		<div class="row">
+		  <div class="col">
+		    <div class="form-outline">
+		      <label class="form-label" for="form8Example3"> <i class="far fa-building"></i> <b>Information du stage</b></label>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="row">
+		  <div class="col">
+		    <!-- Name input -->
+		    <div class="form-outline">
+		      <input type="text" name="id" class="form-control" value="<%=dm.getIdDemandeSoutenance()%>"/>
+		      <label class="form-label" for="form8Example1"><i class="fas fa-ankh"></i>Soutenance id</label>
+		    </div>
+		    
+		    
+		    
+		  </div>
+		  
+		  
+		  
+		  <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		      <input type="date"  class="form-control" name="date_pro" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+		      <label class="form-label" for="form8Example2"><i class="far fa-calendar-plus"></i> Date</label>
+		    </div>
+		    
+		    
+		    <div class="form-outline">
+		      <input type="time" class="form-control"  name="heure" min="09:00" max="18:00" required/>
+		      <label class="form-label" for="form8Example2" ><i class="far fa-clock"></i> Heure </label>
+		    </div>
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+		  </div>
+		   <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		      <input type="email" name="comm" class="form-control" />
+		      <label class="form-label" for="form8Example2"> Commantaire </label>
+		    </div>
+		</div>
+		
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal"><i class="far fa-times-circle"></i> Abandoner</button>
+        <button type="submit" class="btn btn-success rounded-pill"><i class="fas fa-check-circle"></i> Mettre</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 		
 					   <%
 					   } 
