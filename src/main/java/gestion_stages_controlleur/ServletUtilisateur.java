@@ -2,6 +2,7 @@ package gestion_stages_controlleur;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +36,7 @@ public class ServletUtilisateur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -50,7 +51,7 @@ public class ServletUtilisateur extends HttpServlet {
 		String email = request.getParameter("id_uti");
 		String nom = request.getParameter("id_uti");
 		String prenom = request.getParameter("id_uti");
-		String tele = request.getParameter("id_uti");
+		String tele = request.getParameter("tele");
 		String ville = request.getParameter("id_uti");
 		
 		if (id_uti ==null) {
@@ -80,14 +81,21 @@ public class ServletUtilisateur extends HttpServlet {
 				
 				if(utidao.ajouter(uti)==true) {
 					System.out.println("ajout avec succées");
+					//RequestDispatcher dispatcher = request.getRequestDispatcher("/weblayer/Jspform/AjoutUtilisateur.jsp");
+					//dispatcher.forward(request, response);
+					//response.sendRedirect(request.getContextPath()+"/weblayer/Jspform/AjoutUtilisateur.jsp");
 				}
-				
-				vue="/weblayer/Jspform/AjoutUtilisateur.jsp";
+			
+				vue="/WebLayer/Jspform/AjoutUtilisateur.jsp";
 				
 			
 			}
 		}
-		this.getServletContext().getRequestDispatcher(vue).forward(request, response);
+		response.sendRedirect(request.getContextPath()+vue);
+		//request.getRequestDispatcher(vue).forward(request, response);
+		//this.getServletContext().getRequestDispatcher(vue).forward(request, response);
+		//RequestDispatcher dispatcher = request.getRequestDispatcher(vue);
+		//dispatcher.forward(request, response);
 		
 		
 	}

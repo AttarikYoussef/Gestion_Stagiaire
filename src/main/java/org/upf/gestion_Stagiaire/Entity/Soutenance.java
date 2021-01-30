@@ -16,7 +16,7 @@ import java.util.List;
 public class Soutenance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_soutenance")
 	private int idSoutenance;
 
@@ -27,7 +27,7 @@ public class Soutenance implements Serializable {
 	private Date dateSoutenance;
 
 	@Column(name="heure_soutenance")
-	private Time heureSoutenance;
+	private String heureSoutenance;
 
 	//bi-directional many-to-many association to Enseignant
 	@ManyToMany
@@ -74,11 +74,11 @@ public class Soutenance implements Serializable {
 		this.dateSoutenance = dateSoutenance;
 	}
 
-	public Time getHeureSoutenance() {
+	public String getHeureSoutenance() {
 		return this.heureSoutenance;
 	}
 
-	public void setHeureSoutenance(Time heureSoutenance) {
+	public void setHeureSoutenance(String heureSoutenance) {
 		this.heureSoutenance = heureSoutenance;
 	}
 

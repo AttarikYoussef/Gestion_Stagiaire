@@ -74,7 +74,7 @@ div {
     
      <center>
  	<label for="lname">Telephone</label>
-    <input type="text" id="lname" name="tele" >
+    <input type="text" id="lname" name="tele" value="00000" >
     </center>
     
      <center>
@@ -83,6 +83,7 @@ div {
     </center>
   
     <input type="submit" value="Ajouter">
+    <a href="http://localhost:8080/Gestion_Stagiaire/WebLayer/Jspform/ValideDemandeSoutenance.jsp">Tbag</a>
   </form>
 </div>
 
