@@ -2,7 +2,6 @@ package org.upf.gestion_Stagiaire.Entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 

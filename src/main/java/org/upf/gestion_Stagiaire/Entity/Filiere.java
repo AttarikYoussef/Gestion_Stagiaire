@@ -15,15 +15,14 @@ public class Filiere implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="ID_F")
-	private String idF;
+	@Column(name="id_filiere")
+	private String idFiliere;
 
 	private String description;
 
-	private String descriptionF;
+	
 
-	@Column(name="id_filiere")
-	private String idFiliere;
+	
 
 	//bi-directional many-to-one association to Enseignant
 	@OneToMany(mappedBy="filiere")
@@ -36,14 +35,7 @@ public class Filiere implements Serializable {
 	public Filiere() {
 	}
 
-	public String getIdF() {
-		return this.idF;
-	}
-
-	public void setIdF(String idF) {
-		this.idF = idF;
-	}
-
+	
 	public String getDescription() {
 		return this.description;
 	}
@@ -52,13 +44,7 @@ public class Filiere implements Serializable {
 		this.description = description;
 	}
 
-	public String getDescriptionF() {
-		return this.descriptionF;
-	}
-
-	public void setDescriptionF(String descriptionF) {
-		this.descriptionF = descriptionF;
-	}
+	
 
 	public String getIdFiliere() {
 		return this.idFiliere;
