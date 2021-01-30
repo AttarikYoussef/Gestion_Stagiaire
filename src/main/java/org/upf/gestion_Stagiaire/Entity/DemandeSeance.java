@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 
+
 /**
  * The persistent class for the demande_seance database table.
  * 

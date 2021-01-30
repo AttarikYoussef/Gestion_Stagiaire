@@ -1,257 +1,340 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@page import="org.upf.gestion_Stagiaire.Entity.DemandeSoutenance"%>
+<%@page import="gestion_stages_bean.BeanDemandeSoutenance"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+
+
 <html>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demande de soutanance</title>
 
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/2da0a9a74b.js" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
 
-<style>
+</head>
 
+   <%  
+         BeanDemandeSoutenance beandem ;
 
-body {
-padding-bottom:58px; 
+         if (session.getAttribute("beandem")==null) {
+        	 beandem  = new BeanDemandeSoutenance();
+         %>
+         <%
+         }
+         else {
+        	 beandem = (BeanDemandeSoutenance)session.getAttribute("beandem");
+         }
 
-}
-.send-button{
-background: #54C7C3;
-width:100%;
-font-weight: 600;
-color:#fff;
-padding: 8px 25px;
-}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-.g-button{
-color: #fff !important;
-border: 1px solid #EA4335;
-background: #ea4335 !important;
-width:100%;
-font-weight: 600;
-color:#fff;
-padding: 8px 25px;
-}
-.my-input{
-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-cursor: text;
-padding: 8px 10px;
-transition: border .1s linear;
-}
-.header-title{
-margin: 5rem 0;
-}
-h1{
-font-size: 31px;
-line-height: 40px;
-font-weight: 600;
-color:#4c5357;
-}
-h2{
-color: #5e8396;
-font-size: 21px;
-line-height: 32px;
-font-weight: 400;
-}
-.login-or {
-position: relative;
-color: #aaa;
-margin-top: 10px;
-margin-bottom: 10px;
-padding-top: 10px;
-padding-bottom: 10px;
-}
-.span-or {
-display: block;
-position: absolute;
-left: 50%;
-top: -2px;
-margin-left: -25px;
-background-color: #fff;
-width: 50px;
-text-align: center;
-}
-.hr-or {
-height: 1px;
-margin-top: 0px !important;
-margin-bottom: 0px !important;
-}
-@media screen and (max-width:480px){
-h1{
-font-size: 26px;
-font-family: agency fb;
-}
-h2{
-font-size: 20px;
-}
-}
-h1{
-font-family: agency fb;
-font-size: 300%;
-}
-
-.file {
-  opacity: 0;
-  width: 0.1px;
-  height: 0.1px;
-  position: absolute;
-}
-
-.file-input label {
-  display: block;
-  position: relative;
-  width: 200px;
-  height: 50px;
-  border-radius: 25px;
-  background: #95BAE4;
-  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform .2s ease-out;
-}
-
-.file-name {
-  position: absolute;
-  bottom: -35px;
-  left: 10px;
-  font-size: 0.85rem;
-  color: #555;
-}
-
-input:hover + label,
-input:focus + label {
-  transform: scale(1.02);
-}
-
-/* Adding an outline to the label on focus */
-input:focus + label {
-  outline: 1px solid #000;
-  outline: -webkit-focus-ring-color auto 2px;
-}
-
-label {
-font-family: agency fb;
-font-size: large;
-}
-
-</style>
-
-<script type="text/javascript">
-
-const file = document.querySelector('#file');
-file.addEventListener('change', (e) => {
-  // Get the selected file
-  const [file] = e.target.files;
-  // Get the file name and size
-  const { name: fileName, size } = file;
-  // Convert size in bytes to kilo bytes
-  const fileSize = (size / 1000).toFixed(2);
-  // Set the text content
-  const fileNameAndSize = `${fileName} - ${fileSize}KB`;
-  document.querySelector('.file-name').textContent = fileNameAndSize;
-});
-
-</script>
+         %>
+         
 <body>
 
-<body>
-   <div class="container">
-      <div class="col-md-6 mx-auto text-center">
-         <div class="header-title">
-            <h1 class="wv-heading--title">
-              Demande de soutenance
-            </h1>
-           
-         </div>
+
+<!-- Modal -->
+<div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><u>N</u>ouveau Demande de Soutenance</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="row">
-         <div class="col-md-4 mx-auto">
-            <div class="myform form ">
-               <form action="/Gestion_Stagiaire/ServletDemandeSoutenance" method="post" name="login">
-                  <div class="form-group">
-                     <input type="text" name="id_st"  class="form-control my-input" id="name" placeholder="Identifiant du stage">
-                  </div>
-                 
-                 <center>
-                    <div class="file-input">
-  					<input type="file" id="file" class="file" name="fiche_eva">
-  					<label for="file">
+      <div class="modal-body">
+       	
+	<form action="/Gestion_Stagiaire/ServletDemandeSoutenance" method="post">
+		<div class="row">
+		<center>
+		  <div class="col-md-4">
+		    <!-- Name input -->
+		    <div class="form-outline">
+		      <i class="fas fa-user"></i><b> El malki nassim</b> 
+		    </div>
+		  </div>
+		  </center>
+		</div>
+		
+		<hr />
+		
+		<div class="row">
+		  <div class="col">
+		    <div class="form-outline">
+		      <label class="form-label" for="form8Example3"> <i class="fas fa-file-signature"></i> <b>Fichier demandé</b></label>
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		<div class="row">
+		  <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		    <center>
+		     <label >
     				Fiche d'evaluation
-    				<p class="file-name"></p>
-    				
-  					</label>
-					</div>
-                  </center>
-                  <br>
-                  
-                 <center>
-                    <div class="file-input">
-  					<input type="file" id="file" class="file" name="rapp_st">
-  					<label for="file">
+  					</label> </center>
+		      <input type="file" name="fiche_eva" class="form-control" />
+		    </div>
+		  </div>
+		</div>
+		
+		
+		<div class="row">
+		  <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		      <center>
+		     <label >
     				Rapport de stage
-    				<p class="file-name"></p>
-  					</label>
-					</div>
-                  </center>
-                  
-                  <br>
-                   <center>
-                    <div class="file-input">
-  					<input type="file" id="file" class="file"name="att_st">
-  					<label for="file">
-    				Attestation de stage
-    				<p class="file-name"></p>
-  					</label>
-					</div>
-                  </center>
-                  
-                  <br>
-                  
-                    <div class="form-group">
-                   <center>
-                  <label >Date proposÃ© pour soutenance : </label>
-                  <input type="date"  name="date_pro" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
-                  </center>
-                     
-                     
-                  </div>
-                  
-                   <div class="form-group">
-                   <center>
-                  <label for="lname">Heure proposÃ© :</label>
-                  <input type="time" id="appt" name="heure"
-       min="09:00" max="18:00" required>
-                  </center>
-                    
-  
-                  </div>
-                  
-                   <div class="form-group">
-                     <input type="text" name="comm"  class="form-control my-input" id="name" placeholder="Commentaire">
-                  </div>
-
-                  <div class="text-center ">
-                     <button type="submit" class=" btn btn-block send-button tx-tfm">Valider la demande</button>
-                  </div>
-                  <div class="col-md-12 ">
-                     <div class="login-or">
-                        <hr class="hr-or">
-             
-               </form>
-            </div>
-         </div>
+  					</label> </center>
+		      <input type="file" name="rapp_st" class="form-control" />
+		    </div>
+		  </div>
+		</div>
+		
+		
+		
+		<div class="row">
+		  <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		     <center>
+		     <label >
+    				Rapport de stage
+  					</label> </center>
+		      <input type="file" name="att_st" class="form-control" />
+		    </div>
+		  </div>
+		</div>
+		
+		<br>
+		
+		<div class="row">
+		  <div class="col">
+		    <div class="form-outline">
+		      <label class="form-label" for="form8Example3"> <i class="far fa-building"></i> <b>Information du stage</b></label>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="row">
+		  <div class="col">
+		    <!-- Name input -->
+		    <div class="form-outline">
+		      <input type="text" name="id_st" class="form-control"/>
+		      <label class="form-label" for="form8Example1"><i class="fas fa-ankh"></i>  Stage id</label>
+		    </div>
+		    
+		    
+		    
+		  </div>
+		  
+		  
+		  
+		  <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		      <input type="date"  class="form-control" name="date_pro" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+		      <label class="form-label" for="form8Example2"><i class="far fa-calendar-plus"></i> Date</label>
+		    </div>
+		    
+		    
+		    <div class="form-outline">
+		      <input type="time" class="form-control"  name="heure" min="09:00" max="18:00" required/>
+		      <label class="form-label" for="form8Example2" ><i class="far fa-clock"></i> Heure </label>
+		    </div>
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+		  </div>
+		   <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		      <input type="email" name="EmailEnt" class="form-control" />
+		      <label class="form-label" for="form8Example2"> Commantaire </label>
+		    </div>
+		</div>
+		
+		
       </div>
-   </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal"><i class="far fa-times-circle"></i> Abandoner</button>
+        <button type="submit" class="btn btn-success rounded-pill" data-confirm="modal"><i class="fas fa-check-circle"></i> Mettre</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal2 -->
+<div class="modal fade" id="oo" tabindex="-1"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><u>N</u>ouveau Demande de Soutenance</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       	
+	<form action="/Gestion_Stagiaire/ServletDemandeSoutenance" method="post">
+		<div class="row">
+		<center>
+		  <div class="col-md-4">
+		    <!-- Name input -->
+		    <div class="form-outline">
+		      <i class="fas fa-user"></i><b> El malki nassim</b> 
+		    </div>
+		  </div>
+		  </center>
+		</div>
+		
+		<hr />
+		
+
+		<br>
+		
+		<div class="row">
+		  <div class="col">
+		    <div class="form-outline">
+		      <label class="form-label" for="form8Example3"> <i class="far fa-building"></i> <b>Information du stage</b></label>
+		    </div>
+		  </div>
+		</div>
+		
+		<div class="row">
+		  <div class="col">
+		    <!-- Name input -->
+		    <div class="form-outline">
+		      <input type="text" name="id_st" class="form-control"/>
+		      <label class="form-label" for="form8Example1"><i class="fas fa-ankh"></i>Soutenance id</label>
+		    </div>
+		    
+		    
+		    
+		  </div>
+		  
+		  
+		  
+		  <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		      <input type="date"  class="form-control" name="date_pro" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+		      <label class="form-label" for="form8Example2"><i class="far fa-calendar-plus"></i> Date</label>
+		    </div>
+		    
+		    
+		    <div class="form-outline">
+		      <input type="time" class="form-control"  name="heure" min="09:00" max="18:00" required/>
+		      <label class="form-label" for="form8Example2" ><i class="far fa-clock"></i> Heure </label>
+		    </div>
+		  </div>
+		  
+		  
+		  
+		  
+		  
+		  
+		  </div>
+		   <div class="col">
+		    <!-- Email input -->
+		    <div class="form-outline">
+		      <input type="email" name="EmailEnt" class="form-control" />
+		      <label class="form-label" for="form8Example2"> Commantaire </label>
+		    </div>
+		</div>
+		
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger rounded-pill" data-bs-dismiss="modal"><i class="far fa-times-circle"></i> Abandoner</button>
+        <button type="submit" class="btn btn-success rounded-pill" data-confirm="modal"><i class="fas fa-check-circle"></i> Mettre</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<br>
+	<div class="container">
+		<div class="jumbotron">
+			<div class="card">
+			  <div class="card-header text-white text-center" style="background-color: #25383C;">
+			  		<h3><u>D</u>emande de Soutenance</h3>
+			  </div>
+			  <div class="card-body">
+			    <h5 class="card-title"><i class="fas fa-chevron-down"></i> Vos Demandes De soutenance : </h5> 
+			    	<div class="row" style="float: right;">
+				    	<div class="col-md-12 ">
+				    		<button class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#add"><i class="fas fa-plus-circle"></i> Nouvelle Demande</button><br>
+				    		
+				    	</div>
+				    	
+				    </div>
+			    	<br>
+			    	<br>
+			    	<form method='GET'  action='/Gestion_Stagiaire/ServletDemandeSoutenance'>
+				    <table class="table table-dark table-hover table-bordered">
+					  <thead>
+					    <tr>
+					      <th scope="col" style="width:12%">Id demande</th>
+					      <th scope="col">Stage numéro</th>
+					      <th scope="col">Fichier d'evaluation</th>
+					      <th scope="col">Rapport de stage</th>
+					       <th scope="col">Attestation de stage</th>
+					        <th scope="col">date proposé</th>
+					         <th scope="col">heure proposé</th>
+					          <th scope="col">commentaire</th>
+					      <th scope="col" style="width:30%" class="text-center"><i class="fas fa-wrench"></i> Action</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+	 <%
+					  	for(DemandeSoutenance dm : beandem.getArl())
+					  	{
+					  %>
+					    <tr>
+					      <th scope="row"><%=dm.getIdDemandeSoutenance() %></th>
+					      <td><%=dm.getStage().getIdStage() %></td>
+					      <td><%=dm.getFileEvaluation() %></td>
+					      <td><%=dm.getFileRapportStage() %></td>
+					      <td><%=dm.getFileAttestationStage() %></td>
+					      <td><%=dm.getDateProposeSout() %></td>
+					      <td><%=dm.getHeureProposeSout() %></td>
+					      <td><%=dm.getCommentaire() %></td>
+					      <td style="text-align:center">
+					      <a href='deleteDemandeSoutenance.jsp?dd=<%=dm.getIdDemandeSoutenance()%>' class="btn btn-danger rounded-pill"><i class="fas fa-trash-alt"></i>delete</a>
+					      </td>
+					    </tr>
+					    </form>
+		
+					   <%
+					   } 
+					   %>
+					   
+					  </tbody>
+					</table>
+					
+					
+			  </div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

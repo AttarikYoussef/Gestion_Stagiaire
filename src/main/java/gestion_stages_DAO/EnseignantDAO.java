@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
 import org.upf.gestion_Stagiaire.Entity.Enseignant;
 
 import gestion_stagiaire_interface.IntGlobale;
@@ -52,6 +53,18 @@ public class EnseignantDAO implements IntGlobale<Enseignant>{
 		return (ArrayList<Enseignant>) query.getResultList();
 	}
 
+	
+	public List<Enseignant> findByFil() {
+		
+		List<Enseignant> individus = null;
+		individus = (List<Enseignant>) em
+		              .createNativeQuery("select e.* from enseignant e where e.id_filiere= 'GINF'", Enseignant.class)
+		              
+		              .getResultList();
+		return individus;
+	}
+	
+	
 	@Override
 	public boolean remove(String id) {
 
