@@ -10,7 +10,6 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
-import org.upf.gestion_Stagiaire.Entity.Enseignant;
 import org.upf.gestion_Stagiaire.Entity.Stage;
 
 import gestion_stagiaire_interface.IntGlobale;
@@ -64,7 +63,7 @@ return null;
 	public List<DemandeSoutenance> findAll() {
 	Query query = em.createQuery("select e from enseignant e");
 		
-		return (ArrayList<DemandeSoutenance>) query.getResultList();
+		return query.getResultList();
 	}
 
 	@Override

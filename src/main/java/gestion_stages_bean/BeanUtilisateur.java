@@ -1,6 +1,7 @@
 package gestion_stages_bean;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.upf.gestion_Stagiaire.Entity.Utilisateur;
 
@@ -22,10 +23,15 @@ public class BeanUtilisateur {
 
 	private String ville;
 	
-	private ArrayList<Utilisateur> arluti = new ArrayList<Utilisateur>();
+	List<Utilisateur> arl = new ArrayList<Utilisateur>();
 	
+
+	public BeanUtilisateur() {
+		super();
+	}
+
 	public BeanUtilisateur(String idUtilisateur, String adresse, String email, String nom, String prenom,
-			String telephone, String ville, ArrayList<Utilisateur> arluti) {
+			String telephone, String ville, List<Utilisateur> arl) {
 		super();
 		this.idUtilisateur = idUtilisateur;
 		this.adresse = adresse;
@@ -34,11 +40,7 @@ public class BeanUtilisateur {
 		this.prenom = prenom;
 		this.telephone = telephone;
 		this.ville = ville;
-		this.arluti = arluti;
-	}
-
-	public BeanUtilisateur() {
-		super();
+		this.arl = arl;
 	}
 
 	public String getIdUtilisateur() {
@@ -97,14 +99,18 @@ public class BeanUtilisateur {
 		this.ville = ville;
 	}
 
-	public ArrayList<Utilisateur> getArluti() {
-		return arluti;
+	public List<Utilisateur> getArl() {
+		return arl;
 	}
 
-	public void setArluti(ArrayList<Utilisateur> arluti) {
-		this.arluti = arluti;
+	public void setArl(List<Utilisateur> arl) {
+		this.arl = arl;
 	}
 	
+	
+	
+	
+
 	
 
 }

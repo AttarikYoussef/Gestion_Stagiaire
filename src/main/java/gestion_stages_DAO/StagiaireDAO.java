@@ -9,7 +9,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.upf.gestion_Stagiaire.Entity.Enseignant;
 import org.upf.gestion_Stagiaire.Entity.Stagiaire;
 
 import gestion_stagiaire_interface.IntGlobale;
@@ -51,7 +50,7 @@ public class StagiaireDAO  implements IntGlobale<Stagiaire>{
 
 		Query query = em.createQuery("select e from enseignant e");
 		
-		return (ArrayList<Stagiaire>) query.getResultList();
+		return query.getResultList();
 	}
 
 	@Override

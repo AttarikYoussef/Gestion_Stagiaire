@@ -54,9 +54,9 @@ public class UtilisateurDAO implements IntGlobale<Utilisateur> {
 	@Override
 	public List<Utilisateur> findAll() {
 		
-		Query query = em.createQuery("select u from utilisateur u");
+		Query query = em.createQuery("SELECT u FROM Utilisateur u");
 		
-		return (ArrayList<Utilisateur>) query.getResultList();
+		return  query.getResultList();
 			
 	}
 	

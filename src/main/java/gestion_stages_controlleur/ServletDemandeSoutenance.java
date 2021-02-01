@@ -13,12 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
 import org.upf.gestion_Stagiaire.Entity.Stage;
-import org.upf.gestion_Stagiaire.Entity.Utilisateur;
-
 import gestion_stages_DAO.DemandeSoutenanceDAO;
-import gestion_stages_DAO.UtilisateurDAO;
 import gestion_stages_bean.BeanDemandeSoutenance;
-import gestion_stages_bean.BeanUtilisateur;
 
 
 /**
@@ -39,6 +35,7 @@ public class ServletDemandeSoutenance extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -47,6 +44,7 @@ public class ServletDemandeSoutenance extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
