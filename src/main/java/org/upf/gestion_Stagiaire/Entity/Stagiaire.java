@@ -31,9 +31,20 @@ public class Stagiaire implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_promotion")
 	private Promotion promotion;
+	
+	
 
 	public Stagiaire() {
 	}
+	
+	
+
+	public Stagiaire(String idUtiliStagiaire) {
+		super();
+		this.idUtiliStagiaire = idUtiliStagiaire;
+	}
+
+
 
 	public String getIdUtiliStagiaire() {
 		return this.idUtiliStagiaire;
@@ -80,5 +91,14 @@ public class Stagiaire implements Serializable {
 	public void setPromotion(Promotion promotion) {
 		this.promotion = promotion;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Stagiaire [idUtiliStagiaire=" + idUtiliStagiaire + ", promotion=" + promotion + "]";
+	}
+	
+	
 
 }

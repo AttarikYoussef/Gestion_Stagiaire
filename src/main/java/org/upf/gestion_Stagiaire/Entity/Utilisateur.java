@@ -138,4 +138,12 @@ public class Utilisateur implements Serializable {
 		this.stagiaire = stagiaire;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", adresse=" + adresse + ", email=" + email + ", nom="
+				+ nom + ", prenom=" + prenom + ", telephone=" + telephone + ", ville=" + ville + "]";
+	}
+
+	
 }
