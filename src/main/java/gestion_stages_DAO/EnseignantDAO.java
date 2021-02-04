@@ -9,7 +9,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
+import org.upf.gestion_Stagiaire.Entity.Encadrant;
 import org.upf.gestion_Stagiaire.Entity.Enseignant;
+import org.upf.gestion_Stagiaire.Entity.Gerant;
 
 import gestion_stagiaire_interface.IntGlobale;
 
@@ -52,6 +55,18 @@ public class EnseignantDAO implements IntGlobale<Enseignant>{
 		return (ArrayList<Enseignant>) query.getResultList();
 	}
 
+	
+	public List<Enseignant> findByFil() {
+		
+		List<Enseignant> individus = null;
+		individus = (List<Enseignant>) em
+		              .createNativeQuery("select e.* from enseignant e where e.id_filiere= 'GINF'", Enseignant.class)
+		              
+		              .getResultList();
+		return individus;
+	}
+	
+	
 	@Override
 	public boolean remove(String id) {
 
@@ -104,4 +119,44 @@ boolean res = false;
 		
 	}
 
+	public boolean ajouterEncadrant(Encadrant tt) {
+		
+		boolean res = false;
+		tx.begin();
+		try {
+			em.persist(tt);
+			tx.commit();
+			res=true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			res=false;
+			
+		}
+		return res;
+		
+		
+	}
+	
+public boolean ajouterGerant(Gerant tt) {
+		
+		boolean res = false;
+		tx.begin();
+		try {
+			em.persist(tt);
+			tx.commit();
+			res=true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			res=false;
+			
+		}
+		return res;
+		
+		
+	}
+
+
 }
+
