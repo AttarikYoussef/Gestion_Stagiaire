@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
 import org.upf.gestion_Stagiaire.Entity.Soutenance;
@@ -44,8 +45,9 @@ public class SoutenanceDAO  implements IntGlobale<Soutenance>{
 
 	@Override
 	public List<Soutenance> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT s FROM Soutenance s");
+		
+		return  query.getResultList();
 	}
 	
 public List<Soutenance>findallWithgerant(String id) { 

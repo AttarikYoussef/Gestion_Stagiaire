@@ -90,7 +90,7 @@ public class ServletSoutenance extends HttpServlet {
 			
 			if (st.ajouter(s)==true) {
 				System.out.println("ajout avec succées");
-				vue="/WebLayer/Jspform/ValideDemandeSoutenance.jsp";
+				vue="/ServletSoutenance";
 				
 			}
 			else {

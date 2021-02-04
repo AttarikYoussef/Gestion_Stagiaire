@@ -10,7 +10,9 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
+import org.upf.gestion_Stagiaire.Entity.Encadrant;
 import org.upf.gestion_Stagiaire.Entity.Enseignant;
+import org.upf.gestion_Stagiaire.Entity.Gerant;
 
 import gestion_stagiaire_interface.IntGlobale;
 
@@ -116,5 +118,44 @@ boolean res = false;
 		
 		
 	}
+
+	public boolean ajouterEncadrant(Encadrant tt) {
+		
+		boolean res = false;
+		tx.begin();
+		try {
+			em.persist(tt);
+			tx.commit();
+			res=true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			res=false;
+			
+		}
+		return res;
+		
+		
+	}
+	
+public boolean ajouterGerant(Gerant tt) {
+		
+		boolean res = false;
+		tx.begin();
+		try {
+			em.persist(tt);
+			tx.commit();
+			res=true;
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			res=false;
+			
+		}
+		return res;
+		
+		
+	}
+
 
 }

@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import org.upf.gestion_Stagiaire.Entity.Utilisateur;
 
+import gestion_stages_DAO.FiliereDAO;
 import gestion_stages_DAO.UtilisateurDAO;
 import gestion_stages_bean.BeanUtilisateur;
+import gestion_stages_bean.Beanfiliere;
 
 
 /**
@@ -35,8 +37,13 @@ public class ServletUtilisateur extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		BeanUtilisateur bb = new BeanUtilisateur();
+		UtilisateurDAO fl = new UtilisateurDAO();
+		bb.setArl(fl.findAll());
+		HttpSession session = request.getSession();
+		session.setAttribute("bean", bb);
+		String vue="/WebLayer/Jspform/user.jsp";
+		response.sendRedirect(request.getContextPath()+vue);
 	}
 
 	/**
@@ -47,16 +54,16 @@ public class ServletUtilisateur extends HttpServlet {
 		
 		String vue="";
 		String id_uti = request.getParameter("id_uti");
-		String adresse = request.getParameter("id_uti");
-		String email = request.getParameter("id_uti");
-		String nom = request.getParameter("id_uti");
-		String prenom = request.getParameter("id_uti");
+		String adresse = request.getParameter("adresse");
+		String email = request.getParameter("email");
+		String nom = request.getParameter("nom");
+		String prenom = request.getParameter("prenom");
 		String tele = request.getParameter("tele");
-		String ville = request.getParameter("id_uti");
+		String ville = request.getParameter("ville");
 		
 		if (id_uti ==null) {
 			
-			vue="/weblayer/vue/Vuenote.jsp";
+			vue="/weblayer/vue/user.jsp";
 		}
 		else {
 			if (id_uti.equals("") ) {
@@ -81,17 +88,18 @@ public class ServletUtilisateur extends HttpServlet {
 				
 				if(utidao.ajouter(uti)==true) {
 					System.out.println("ajout avec succées");
+					response.sendRedirect(request.getContextPath()+"/ServletUtilisateur");
 					//RequestDispatcher dispatcher = request.getRequestDispatcher("/weblayer/Jspform/AjoutUtilisateur.jsp");
 					//dispatcher.forward(request, response);
 					//response.sendRedirect(request.getContextPath()+"/weblayer/Jspform/AjoutUtilisateur.jsp");
 				}
 			
-				vue="/WebLayer/Jspform/AjoutUtilisateur.jsp";
+				
 				
 			
 			}
 		}
-		response.sendRedirect(request.getContextPath()+vue);
+		
 		//request.getRequestDispatcher(vue).forward(request, response);
 		//this.getServletContext().getRequestDispatcher(vue).forward(request, response);
 		//RequestDispatcher dispatcher = request.getRequestDispatcher(vue);

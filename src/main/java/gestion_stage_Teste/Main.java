@@ -9,12 +9,18 @@ import java.util.Date;
 import java.util.Locale;
 
 import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
+import org.upf.gestion_Stagiaire.Entity.DemandeStage;
 import org.upf.gestion_Stagiaire.Entity.Enseignant;
+import org.upf.gestion_Stagiaire.Entity.Filiere;
+import org.upf.gestion_Stagiaire.Entity.Promotion;
 import org.upf.gestion_Stagiaire.Entity.Soutenance;
 import org.upf.gestion_Stagiaire.Entity.Utilisateur;
 
 import gestion_stages_DAO.DemandeSoutenanceDAO;
+import gestion_stages_DAO.DemandeStageDAO;
 import gestion_stages_DAO.EnseignantDAO;
+import gestion_stages_DAO.FiliereDAO;
+import gestion_stages_DAO.PromotionDAO;
 import gestion_stages_DAO.SoutenanceDAO;
 import gestion_stages_DAO.UtilisateurDAO;
 
@@ -30,12 +36,31 @@ public class Main {
 //		}
 //	
 		
-		SoutenanceDAO dd = new SoutenanceDAO();
-		for (Soutenance te : dd.findallWithgerant("")) {
-			
-			System.out.println(te.getCommentaire());
-			
+//		SoutenanceDAO dd = new SoutenanceDAO();
+//		for (Soutenance te : dd.findallWithgerant("")) {
+//			
+//			System.out.println(te.getCommentaire());
+//			
+//		}
+		
+		SoutenanceDAO ss = new SoutenanceDAO();
+		
+		for (Soutenance s : ss.findAll()) {
+			System.out.println(s.getCommentaire());
 		}
+		
+//		DemandeStageDAO dd = new DemandeStageDAO();
+//		
+//		for (DemandeStage fl : dd.findAll()) {
+//			System.out.println(fl.getAdresseEntreprise());
+//		}
+		
+//		
+//		PromotionDAO fl = new PromotionDAO();
+//		
+//		for (Promotion f : fl.findAll()) {
+//			System.out.println(f.getDescription());
+//		}
 		
 //		DemandeSoutenance hh = new DemandeSoutenance();
 //		hh.setIdDemandeSoutenance(20);

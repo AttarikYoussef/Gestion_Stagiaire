@@ -1,6 +1,5 @@
 package gestion_stages_DAO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -10,20 +9,20 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import org.upf.gestion_Stagiaire.Entity.Filiere;
-import org.upf.gestion_Stagiaire.Entity.Stagiaire;
+import org.upf.gestion_Stagiaire.Entity.Promotion;
 
 import gestion_stagiaire_interface.IntGlobale;
 
-public class FiliereDAO implements IntGlobale<Filiere>{
+public class PromotionDAO  implements IntGlobale<Promotion> {
 	
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Gestion_Stagiaire");
 	EntityManager em = emf.createEntityManager();
 	EntityTransaction tx = em.getTransaction();
-
+	
 
 	@Override
-	public boolean ajouter(Filiere t) {
-
+	public boolean ajouter(Promotion t) {
+		
 		boolean res = false;
 		tx.begin();
 		try {
@@ -41,64 +40,34 @@ public class FiliereDAO implements IntGlobale<Filiere>{
 	}
 
 	@Override
-	public Filiere findByID(String id) {
+	public Promotion findByID(String id) {
 		
-		Filiere uti = em.find(Filiere.class, id);
+		Promotion uti = em.find(Promotion.class, id);
 		
 		return uti;
 	}
+	
+	
 
 	@Override
-	public List<Filiere> findAll() {
-
-		Query query = em.createQuery("SELECT f FROM Filiere f");
+	public List<Promotion> findAll() {
+		
+		Query query = em.createQuery("SELECT p FROM Promotion p");
 		
 		return  query.getResultList();
 	}
 
 	@Override
 	public boolean remove(String id) {
-
-		Filiere etu = findByID(id);
-		boolean res = false;
-		tx.begin();
-		try {
-			em.merge(etu);
-			tx.commit();
-			res=true;
-			
-		} catch (Exception e) {
-			System.out.println(e);
-			res=false;
-			
-		}
-		return res;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
-	public boolean update(Filiere obj) {
-		
-		boolean res = false;
-		Filiere uti = findByID(obj.getIdFiliere());
-		
-		if(uti!=null) {
-			
-			tx.begin();
-			
-			try {
-				
-				em.merge(uti);
-				tx.commit();
-				res=true;
-				
-			} catch (Exception e) {
-				System.out.println(e);
-				res=false;
-			}
-			
-		}
-		
-		return res;
+	public boolean update(Promotion obj) {
+		// TODO Auto-generated method stub
+		return false;
 	}
+	
 
 }

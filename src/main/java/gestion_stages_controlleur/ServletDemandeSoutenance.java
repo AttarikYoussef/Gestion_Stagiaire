@@ -83,7 +83,7 @@ public class ServletDemandeSoutenance extends HttpServlet {
 		
 	if (id_st ==null) {
 			
-		 vue="/WebLayer/Jspform/teste.jsp";
+		 vue="/WebLayer/Jspform/ValideDemandeSoutenance.jsp";
 		}
 		else {
 			if (id_st.equals("") ) {
@@ -147,7 +147,7 @@ public class ServletDemandeSoutenance extends HttpServlet {
 					System.out.println("ajout avec succées");
 				}
 				
-				vue="/WebLayer/Jspform/teste.jsp";
+				vue="/ServletDemandeSoutenance";
 				
 			}
 			

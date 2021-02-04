@@ -9,7 +9,7 @@ int numi = Integer.parseInt(num);
 DemandeSoutenanceDAO dao = new DemandeSoutenanceDAO();
 boolean aa = dao.removee(numi);
 if (aa=true){
-	response.sendRedirect(request.getContextPath()+"/Gestion_Stagiaire/teste");
+	response.sendRedirect(request.getContextPath()+"/ServletDemandeSoutenance");
 }
 %>
 

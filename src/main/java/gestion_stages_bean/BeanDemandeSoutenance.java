@@ -15,6 +15,7 @@ public class BeanDemandeSoutenance {
 	String heure,comm;
 	byte[] fiche_eva,rapp_st,att_st;
 	Date date_demande;
+	
 	List<DemandeSoutenance> arl = new ArrayList<DemandeSoutenance>();
 	List<Soutenance> arl2 = new ArrayList<Soutenance>();
 	List<Enseignant> arl3 = new ArrayList<Enseignant>();

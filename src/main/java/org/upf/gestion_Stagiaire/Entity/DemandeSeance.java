@@ -29,7 +29,7 @@ public class DemandeSeance implements Serializable {
 	@Column(name="heure_propose_seance")
 	private Time heureProposeSeance;
 
-	private byte validation;
+	private boolean validation;
 
 	//bi-directional many-to-one association to Stage
 	@ManyToOne
@@ -67,11 +67,11 @@ public class DemandeSeance implements Serializable {
 		this.heureProposeSeance = heureProposeSeance;
 	}
 
-	public byte getValidation() {
+	public boolean getValidation() {
 		return this.validation;
 	}
 
-	public void setValidation(byte validation) {
+	public void setValidation(Boolean validation) {
 		this.validation = validation;
 	}
 

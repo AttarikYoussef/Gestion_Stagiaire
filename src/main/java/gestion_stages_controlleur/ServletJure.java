@@ -61,7 +61,7 @@ public class ServletJure extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
-		String vue="";
+		String vue="/ServletJure";
 		String id = request.getParameter("id");
 		String ens1 = request.getParameter("ens1");
 		String ens2 = request.getParameter("ens2");

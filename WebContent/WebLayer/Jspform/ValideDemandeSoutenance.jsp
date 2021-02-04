@@ -320,7 +320,7 @@
 					      <td><%=dm.getCommentaire() %></td>
 					      <td style="text-align:center">
 					      <a href='delete.jsp?dd=<%=dm.getIdDemandeSoutenance()%>' class="btn btn-danger rounded-pill"><i class="fas fa-trash-alt"></i>delete</a>
-					       <a data-bs-toggle="modal" data-bs-target="#id<%=dm.getIdDemandeSoutenance()%>" class="btn btn-success"><i class="far fa-check-circle"></i>Valider</a>
+					       <a data-bs-toggle="modal" data-bs-target="id<%=dm.getIdDemandeSoutenance()%>" class="btn btn-success"><i class="far fa-check-circle"></i>Valider</a>
 
 					      </td>
 					    </tr>
