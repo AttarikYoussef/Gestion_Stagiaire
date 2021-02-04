@@ -54,6 +54,7 @@ public class ServletDemandeSoutenance extends HttpServlet {
 		String vue="";
 		String id_st = request.getParameter("id_st");
 		byte[] fiche_eva = request.getParameter("fiche_eva").getBytes();
+		
 		byte[] rapp_st = request.getParameter("rapp_st").getBytes();
 		byte[] att_st = request.getParameter("att_st").getBytes();
 		 String datedem = request.getParameter("date_pro");

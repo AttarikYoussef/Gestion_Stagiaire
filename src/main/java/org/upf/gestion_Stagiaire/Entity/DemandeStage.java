@@ -2,6 +2,8 @@ package org.upf.gestion_Stagiaire.Entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -59,6 +61,57 @@ public class DemandeStage implements Serializable {
 
 	public DemandeStage() {
 	}
+	
+	
+
+	
+
+
+
+	public DemandeStage(String adresseEntreprise, String emailEntreprise, String emailResEnt, String nomEntreprise,
+			String nomPrenomResEnt, String secteurEntreprise, String telephoneEntreprise, String telephoneResEnt,
+			boolean validation, Stagiaire stagiaire) {
+		super();
+		this.adresseEntreprise = adresseEntreprise;
+		this.emailEntreprise = emailEntreprise;
+		this.emailResEnt = emailResEnt;
+		this.nomEntreprise = nomEntreprise;
+		this.nomPrenomResEnt = nomPrenomResEnt;
+		this.secteurEntreprise = secteurEntreprise;
+		this.telephoneEntreprise = telephoneEntreprise;
+		this.telephoneResEnt = telephoneResEnt;
+		this.validation = validation;
+		this.stagiaire = stagiaire;
+	}
+
+
+
+
+
+
+
+	public DemandeStage(String adresseEntreprise, String emailEntreprise, String emailResEnt, byte[] file_Convention,
+			String nomEntreprise, String nomPrenomResEnt, String secteurEntreprise, String telephoneEntreprise,
+			String telephoneResEnt, boolean validation, Stagiaire stagiaire) {
+		super();
+		this.adresseEntreprise = adresseEntreprise;
+		this.emailEntreprise = emailEntreprise;
+		this.emailResEnt = emailResEnt;
+		this.file_Convention = file_Convention;
+		this.nomEntreprise = nomEntreprise;
+		this.nomPrenomResEnt = nomPrenomResEnt;
+		this.secteurEntreprise = secteurEntreprise;
+		this.telephoneEntreprise = telephoneEntreprise;
+		this.telephoneResEnt = telephoneResEnt;
+		this.validation = validation;
+		this.stagiaire = stagiaire;
+	}
+
+
+
+
+
+
 
 	public int getIdDemandeStage() {
 		return this.idDemandeStage;
@@ -177,5 +230,23 @@ public class DemandeStage implements Serializable {
 
 		return stage;
 	}
+
+
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "DemandeStage [idDemandeStage=" + idDemandeStage + ", adresseEntreprise=" + adresseEntreprise
+				+ ", emailEntreprise=" + emailEntreprise + ", emailResEnt=" + emailResEnt + ", file_Convention="
+				+ Arrays.toString(file_Convention) + ", nomEntreprise=" + nomEntreprise + ", nomPrenomResEnt="
+				+ nomPrenomResEnt + ", secteurEntreprise=" + secteurEntreprise + ", telephoneEntreprise="
+				+ telephoneEntreprise + ", telephoneResEnt=" + telephoneResEnt + ", validation=" + validation
+				+ ", stagiaire=" + stagiaire + "]";
+	}
+	
+	
 
 }
