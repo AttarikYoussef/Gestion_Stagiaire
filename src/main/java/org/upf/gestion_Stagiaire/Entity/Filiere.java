@@ -17,10 +17,16 @@ public class Filiere implements Serializable {
 	@Id
 	@Column(name="id_filiere")
 	private String idFiliere;
+<<<<<<< HEAD
 	
 	private String description;
 
 
+=======
+
+	private String description;
+
+>>>>>>> 77cadf5e2aa2f84da82ece319898361c618e1cff
 	
 
 	//bi-directional many-to-one association to Enseignant
@@ -34,8 +40,11 @@ public class Filiere implements Serializable {
 	public Filiere() {
 	}
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 77cadf5e2aa2f84da82ece319898361c618e1cff
 
 	public String getDescription() {
 		return this.description;
@@ -45,9 +54,12 @@ public class Filiere implements Serializable {
 		this.description = description;
 	}
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 77cadf5e2aa2f84da82ece319898361c618e1cff
 
 	public String getIdFiliere() {
 		return this.idFiliere;

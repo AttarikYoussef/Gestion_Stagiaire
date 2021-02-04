@@ -10,7 +10,10 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import org.upf.gestion_Stagiaire.Entity.DemandeSoutenance;
+<<<<<<< HEAD
 import org.upf.gestion_Stagiaire.Entity.Encadrant;
+=======
+>>>>>>> 77cadf5e2aa2f84da82ece319898361c618e1cff
 import org.upf.gestion_Stagiaire.Entity.Enseignant;
 import org.upf.gestion_Stagiaire.Entity.Gerant;
 
