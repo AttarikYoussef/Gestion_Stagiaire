@@ -49,7 +49,7 @@ public class EnseignantDAO implements IntGlobale<Enseignant>{
 		
 		Query query = em.createQuery("select e from enseignant e");
 		
-		return (ArrayList<Enseignant>) query.getResultList();
+		return query.getResultList();
 	}
 
 	@Override

@@ -51,9 +51,9 @@ public class FiliereDAO implements IntGlobale<Filiere>{
 	@Override
 	public List<Filiere> findAll() {
 
-		Query query = em.createQuery("select e from enseignant e");
+		Query query = em.createQuery("SELECT f FROM Filiere f");
 		
-		return (ArrayList<Filiere>) query.getResultList();
+		return  query.getResultList();
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class FiliereDAO implements IntGlobale<Filiere>{
 	public boolean update(Filiere obj) {
 		
 		boolean res = false;
-		Filiere uti = findByID(obj.getIdF());
+		Filiere uti = findByID(obj.getIdFiliere());
 		
 		if(uti!=null) {
 			
